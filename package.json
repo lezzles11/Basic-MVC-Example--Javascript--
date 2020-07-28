@@ -6,6 +6,11 @@
   "scripts": {
     "test": "jest"
   },
+  "keywords": [
+    "mvc",
+    "javascript",
+    "model view controller example"
+  ],
   "author": "lesley",
   "license": "MIT"
 }

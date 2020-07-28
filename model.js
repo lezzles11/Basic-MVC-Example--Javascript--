@@ -21,6 +21,15 @@ class Model {
       { id: 2, text: "Reevaluate my entire life", complete: false },
     ];
   }
+  bindTodoListChanged(callback) {
+    // function
+    this.onTodoListChanged = callback;
+  }
+
+  _commit(items) {
+    this.onTodoListChanged(items);
+    localStorage.setItem("todos", JSON.stringify(item));
+  }
 
   /** # Add an item  #
 /*  ====================== */
@@ -35,6 +44,8 @@ class Model {
     };
     // Add it to the original array
     this.items.push(newItem);
+
+    this._commit(this.items);
   }
 
   /** # Edits an Item  #
@@ -49,6 +60,7 @@ class Model {
         : // otherwise, keep the old item
           item
     );
+    this._commit(this.items);
   }
 
   /** # Deletes an item  #
@@ -58,6 +70,7 @@ class Model {
   delete(id) {
     // this items now includes all items that dont have that passed in id
     this.items = this.items.filter((item) => item.id !== id);
+    this._commit(this.items);
   }
 
   /** # Toggle an item  #
@@ -73,6 +86,7 @@ class Model {
         : // otherwise, return the item
           item
     );
+    this._commit(this.items);
   }
 
   seeAll() {
@@ -82,4 +96,4 @@ class Model {
   }
 }
 
-module.exports = Model;
+export default Model;
