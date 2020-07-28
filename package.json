@@ -1,0 +1,11 @@
+{
+  "name": "mvc_javascript",
+  "version": "1.0.0",
+  "description": "basic example of mvc using javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "lesley",
+  "license": "MIT"
+}
